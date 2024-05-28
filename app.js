@@ -10,7 +10,7 @@ search.addEventListener("click", () => {
 
   if (city == "") return;
   fetch(
-    "https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}"
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}`
   )
     .then((response) => response.json())
     .then((json) => {
@@ -27,11 +27,11 @@ search.addEventListener("click", () => {
       weatherDetails.classList.add("active");
       error404.classList.remove("active");
 
-      const image = document.querySelector("weather-box img");
-      const temperature = document.querySelector("weather-box .temperature");
-      const description = document.querySelector("weather-box .description");
-      const humidity = document.querySelector("weather-details .humidity span");
-      const wind = document.querySelector("weather-box .wind span");
+      const image = document.querySelector(".weather-box img");
+      const temperature = document.querySelector(".weather-box .temperature");
+      const description = document.querySelector(".weather-box .description");
+      const humidity = document.querySelector(".weather-details .humidity span");
+      const wind = document.querySelector(".weather-box .wind span");
 
       switch (json.weather[0].main) {
         case "Clear":
@@ -42,19 +42,19 @@ search.addEventListener("click", () => {
           image.src = "images/rain.png";
           break;
 
-        case "snow":
+        case "Snow":
           image.src = "images/snow.png";
           break;
 
-        case "clouds":
+        case "Clouds":
           image.src = "images/cloud.png";
           break;
 
-        case "mist":
-          image.src = "image/mist.png";
+        case "Mist":
+          image.src = "images/mist.png";
           break;
 
-        case "haze":
+        case "Haze":
           image.src = "images/mist.png";
           break;
 
@@ -62,9 +62,12 @@ search.addEventListener("click", () => {
           image.src = "images/cloud.png";
       }
 
-      temperature.innerHTML = "${parseInt(json.main.temp)}<span>°C</span>";
-      description.innerHTML = "${json.weather[0].description}";
-      humidity.innerHTML = "${json.main.humidity}%";
-      wind.innerHTML = "${parseInt(json.wind.speed)}Km/h";
+      temperature.innerHTML = `${parseInt(json.main.temp)} <span>°C </span>`;
+      description.innerHTML = `${json.weather[0].description}`;
+      humidity.innerHTML = `${json.main.humidity}%`;
+      wind.innerHTML = `${parseInt(json.wind.speed)}Km/h`;
     });
 });
+
+
+
