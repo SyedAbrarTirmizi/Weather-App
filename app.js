@@ -30,7 +30,9 @@ search.addEventListener("click", () => {
       const image = document.querySelector(".weather-box img");
       const temperature = document.querySelector(".weather-box .temperature");
       const description = document.querySelector(".weather-box .description");
-      const humidity = document.querySelector(".weather-details .humidity span");
+      const humidity = document.querySelector(
+        ".weather-details .humidity span"
+      );
       const wind = document.querySelector(".weather-box .wind span");
 
       switch (json.weather[0].main) {
@@ -68,6 +70,3 @@ search.addEventListener("click", () => {
       wind.innerHTML = `${parseInt(json.wind.speed)}Km/h`;
     });
 });
-
-
-
