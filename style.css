@@ -80,7 +80,6 @@ body {
 
 .weather-box {
   text-align: center;
-  margin: 40px 0;
 }
 
 .weather-box,
@@ -96,7 +95,7 @@ visibility: visible;
 }
 
 .weather-box img {
-  width: 60%;
+  width: 35%;
 }
 
 .weather-box .temperature {
